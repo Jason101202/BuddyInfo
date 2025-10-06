@@ -26,7 +26,7 @@ public class BuddyInfoAppTestWebServer {
 
     @Test
     void testBuddyInfo() throws Exception {
-        HttpEntity<BuddyInfo> requestb = new HttpEntity<>(new BuddyInfo("b", "1234", "1234"));
+        HttpEntity<BuddyInfo> requestb = new HttpEntity<>(new BuddyInfo("b", "1234", "1234", "bud@carleton.ca"));
         BuddyInfo b = restTemplate.postForObject("http://localhost:" + port + "/buddyInfo", requestb, BuddyInfo.class);
         Assertions.assertNotNull(b);
         Assertions.assertEquals(b.getName(), "b");

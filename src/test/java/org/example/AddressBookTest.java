@@ -21,21 +21,21 @@ public class AddressBookTest {
 
     @Test
     public void addBuddy() {
-        abt1.addBuddy(new BuddyInfo("bud", "addr", "1234"));
-        assertEquals("[BuddyInfo{name='bud', address='addr', phoneNumber='1234'}]",abt1.toString());
+        abt1.addBuddy(new BuddyInfo("bud", "addr", "1234", "bud@carleton.ca"));
+        assertEquals("[BuddyInfo{name='bud', address='addr', phoneNumber='1234', email='bud@carleton.ca'}]",abt1.toString());
     }
 
     @Test
     public void removeBuddy() {
-        abt1.removeBuddy(new BuddyInfo("bud", "addr", "1234"));
+        abt1.removeBuddy(new BuddyInfo("bud", "addr", "1234","bud@carleton.ca"));
         assertEquals("[]", abt1.toString());
     }
 
     @Test
     public void testToString() {
-        abt1.addBuddy(new BuddyInfo("bud", "addr", "1234"));
-        abt1.addBuddy(new BuddyInfo("bud2", "addr2", "4321"));
-        assertEquals("[BuddyInfo{name='bud', address='addr', phoneNumber='1234'}, BuddyInfo{name='bud2', address='addr2', phoneNumber='4321'}]", abt1.toString());
+        abt1.addBuddy(new BuddyInfo("bud", "addr", "1234","bud@carleton.ca"));
+        abt1.addBuddy(new BuddyInfo("bud2", "addr2", "4321", "bud2@carleton.ca"));
+        assertEquals("[BuddyInfo{name='bud', address='addr', phoneNumber='1234',email='bud@carleton.ca'}, BuddyInfo{name='bud2', address='addr2', phoneNumber='4321', email='bud2@carleton.ca'}]", abt1.toString());
     }
 
 

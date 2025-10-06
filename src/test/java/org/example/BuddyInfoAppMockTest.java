@@ -30,7 +30,7 @@ public class BuddyInfoAppMockTest {
     @Test
     void shouldContainBuddyInfoBud() throws Exception {
         // Arrange
-        BuddyInfo bud = new BuddyInfo("bud", "1234", "1234");
+        BuddyInfo bud = new BuddyInfo("bud", "1234", "1234", "bud@carleton");
         when(repo.findAll()).thenReturn(List.of(bud));
 
         // Act + Assert
