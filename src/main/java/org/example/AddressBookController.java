@@ -15,8 +15,8 @@ public class AddressBookController {
     }
     @GetMapping("/display")
     public String displayAddressBook(Model model){
-        AddressBook a = repo.findById(1);
-        String buddies = a.getBuddies().toString();
+        // AddressBook a = repo.findById(1);
+        // String buddies = a.getBuddies().toString();
         String testBuddies = "Buddy 1, Buddy 2, Budddyyyy ahhhhhhh";
         model.addAttribute("addressBookBuds", testBuddies);
         return "DisplayAB";
