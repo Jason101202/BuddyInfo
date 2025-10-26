@@ -22,6 +22,8 @@ public class AddressBook {
         buddies = new ArrayList<BuddyInfo>();
     }
 
+    public AddressBook(String name) {this.name = name;}
+
 
 
     public Long getId() {

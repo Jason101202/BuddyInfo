@@ -35,7 +35,7 @@ public class AddressBookTest {
     public void testToString() {
         abt1.addBuddy(new BuddyInfo("bud", "addr", "1234","bud@carleton.ca"));
         abt1.addBuddy(new BuddyInfo("bud2", "addr2", "4321", "bud2@carleton.ca"));
-        assertEquals("[BuddyInfo{name='bud', address='addr', phoneNumber='1234',email='bud@carleton.ca'}, BuddyInfo{name='bud2', address='addr2', phoneNumber='4321', email='bud2@carleton.ca'}]", abt1.toString());
+        assertEquals("[BuddyInfo{name='bud', address='addr', phoneNumber='1234', email='bud@carleton.ca'}, BuddyInfo{name='bud2', address='addr2', phoneNumber='4321', email='bud2@carleton.ca'}]", abt1.toString());
     }
 
 
