@@ -34,7 +34,7 @@ public class BuddyInfoAppMockTest {
         when(repo.findAll()).thenReturn(List.of(bud));
 
         // Act + Assert
-        mockMvc.perform(get("/buddyInfo"))
+        mockMvc.perform(get("/displayB"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("bud")))
                 .andDo(print());
