@@ -1,8 +1,7 @@
 package org.example;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
 @Controller
@@ -25,6 +24,13 @@ public class AddressBookController {
         model.addAttribute("addressBookBuds", buddies);
         return "DisplayAB";
 
+    }
+
+    @PostMapping("/addressBook")
+    public String addAddressBook(@ModelAttribute AddressBook addressBook, Model model) {
+        model.addAttribute("addressbook", addressBook);
+        repo.save(addressBook);
+        return "DisplayAB";
     }
     /*
     @GetMapping("/display")
