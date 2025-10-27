@@ -18,11 +18,11 @@ public class AddressBookController {
         if (a == null) {
             String testBuddies = "No buddies found";
             model.addAttribute("addressBookBuds", testBuddies);
-            return "addressBook";
+            return "addressbookInteract";
         }
         String buddies = a.getBuddies().toString();
         model.addAttribute("addressBookBuds", buddies);
-        return "addressBook";
+        return "addressbookInteract";
 
     }
 
@@ -30,7 +30,7 @@ public class AddressBookController {
     public String addAddressBook(@ModelAttribute AddressBook addressBook, Model model) {
         model.addAttribute("addressbook", addressBook);
         repo.save(addressBook);
-        return "DisplayAB";
+        return "addressbookInteract";
     }
     /*
     @GetMapping("/display")
