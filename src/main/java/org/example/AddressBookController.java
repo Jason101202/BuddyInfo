@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
+import java.util.List;
+
 @Controller
 public class AddressBookController {
     // we need to update this
@@ -24,6 +26,12 @@ public class AddressBookController {
         model.addAttribute("addressBookBuds", buddies);
         return "DisplayAB";
 
+    }
+
+    @GetMapping("/addressBook")
+    @ResponseBody
+    public List<AddressBook> getAllAddressBooks() {
+        return repo.findAll();
     }
 
 

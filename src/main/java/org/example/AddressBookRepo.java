@@ -10,5 +10,7 @@ import java.util.List;
 public interface AddressBookRepo extends CrudRepository<AddressBook, Long> {
     AddressBook findById(long id);
 
+    public List<AddressBook> findAll();
+
     AddressBook findByName(@Param("name") String name);
 }
