@@ -21,7 +21,7 @@ public class AddressBookRestController {
         return repo.findById(1L); // Return the only one
     }
 
-    @PostMapping
+    @PostMapping(consumes = "application/json", produces = "application/json")
     public AddressBook createAddressBook(@RequestBody AddressBook book) {
         if (repo.count() == 0) {
             return repo.save(book);
