@@ -2,6 +2,7 @@ package org.example;
 
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/addressBook")
 public class AddressBookRestController {
