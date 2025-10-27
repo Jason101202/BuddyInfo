@@ -12,18 +12,25 @@ public class AddressBookController {
     public AddressBookController(AddressBookRepo repo) {
         this.repo = repo;
     }
-    @GetMapping("/addressBook")
+    @GetMapping("/display")
     public String displayAddressBook(Model model){
         AddressBook a = repo.findById(1);
         if (a == null) {
             String testBuddies = "No buddies found";
             model.addAttribute("addressBookBuds", testBuddies);
-            return "addressbookInteract";
+            return "DisplayAB";
         }
         String buddies = a.getBuddies().toString();
         model.addAttribute("addressBookBuds", buddies);
-        return "addressbookInteract";
+        return "DisplayAB";
 
+    }
+
+
+    @GetMapping("/addressBook")
+    public String formAddressBook(Model model){
+        model.addAttribute("addressbook", new AddressBook());
+        return "addressbookInteract";
     }
 
     @PostMapping("/addressBook")
