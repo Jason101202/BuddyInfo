@@ -6,11 +6,11 @@ $(document).ready(function() {
                 url: apiUrl,
                 type: "GET",
                 success: function(data) {
-                    const list = $(".addressbook-list");
-                    list.empty();
-                    data.forEach(function(book) {
-                        list.append(`<li>${book.name}</li>`);
-                    });
+                    if (data && data.name) {
+                        $('.addressbook-name').text("Your address book: " + data.name);
+                    } else {
+                        $('.addressbook-name').text("No address book exists yet. Create one below!");
+                    }
                 },
                 error: function(xhr, status, error) {
                     console.error("Error fetching address books:", error);

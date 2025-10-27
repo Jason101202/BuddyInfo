@@ -28,23 +28,30 @@ public class AddressBookController {
 
     }
 
-    @GetMapping("/addressBook")
-    @ResponseBody
-    public List<AddressBook> getAllAddressBooks() {
-        return repo.findAll();
-    }
+
 
 
     @GetMapping("/addressBook")
     public String formAddressBook(Model model){
-        model.addAttribute("addressbook", new AddressBook());
+        if (repo.count() > 0) {
+            model.addAttribute("addressbook", repo.findById(1));
+        } else {
+            model.addAttribute("addressbook", new AddressBook());
+        }
+
         return "addressbookInteract";
     }
 
     @PostMapping("/addressBook")
     public String addAddressBook(@ModelAttribute AddressBook addressBook, Model model) {
-        model.addAttribute("addressbook", addressBook);
-        repo.save(addressBook);
+        if (repo.count() > 0) {
+            repo.deleteAll();
+            model.addAttribute("addressbook", addressBook);
+            repo.save(addressBook);
+        } else {
+            model.addAttribute("addressbook", addressBook);
+            repo.save(addressBook);
+        }
         return "addressbookInteract";
     }
     /*
