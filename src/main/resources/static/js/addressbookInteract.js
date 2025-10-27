@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     // 🔹 Create a new address book when the button is pressed
     $("#create").on("click", function(event) {
-        event.preventDefault(); // prevent form reload
+
 
         const name = $("input[name='name']").val();
 
@@ -30,6 +30,7 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify({ name: name }),
             success: function(data) {
+                console.log("Fetched data:", data);
                 $('.addressbook-name').text("Your address book: " + data.name);
             },
             error: function(xhr) {
