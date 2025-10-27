@@ -20,6 +20,7 @@ $(document).ready(function() {
 
     // 🔹 Create a new address book when the button is pressed
     $("#create").on("click", function(event) {
+        event.preventDefault();
 
 
         const name = $("input[name='name']").val();
