@@ -19,7 +19,7 @@ $(document).ready(function() {
     });
 
     // 🔹 Create a new address book when the button is pressed
-    $("#create").on("click", function(event) {
+    $("addressbook-form").on("submit", function(event) {
         event.preventDefault();
 
 
