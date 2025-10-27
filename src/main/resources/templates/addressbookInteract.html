@@ -10,7 +10,7 @@
 <h1>Create a AddressBook!</h1>
 <form action="#" th:action="@{/addressBook}" th:object="${addressbook}" method="post">
     <p>Name: <input type="text" th:field="*{name}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    <p><input type="submit" id="add" value="add" /> <input type="reset" value="Reset" /></p>
 </form>
 
 <div>
