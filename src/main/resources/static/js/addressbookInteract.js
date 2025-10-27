@@ -1,7 +1,7 @@
 $(document).ready(function() {
     const apiUrl = "https://personalizedaddressbook-eebqcue0bhayaeft.canadacentral-01.azurewebsites.net/api/addressBook";
 
-    // 🔹 Load the existing address book when the page loads
+
     $.ajax({
         url: apiUrl,
         type: 'GET',
@@ -18,8 +18,8 @@ $(document).ready(function() {
         }
     });
 
-    // 🔹 Create a new address book when the button is pressed
-    $("addressbook-form").on("submit", function(event) {
+
+    $("#addressbook-form").on("submit", function(event) {
         event.preventDefault();
 
 
