@@ -4,13 +4,13 @@
     <title>AddressBook Interactive Form!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="addressbookInteract.js"></script>
+    <script src="/js/addressbookInteract.js"></script>
 </head>
 <body>
 <h1>Create a AddressBook!</h1>
 <form action="#" th:action="@{/addressBook}" th:object="${addressbook}" method="post">
     <p>Name: <input type="text" th:field="*{name}" /></p>
-    <p><input type="submit" id="add" value="add" /> <input type="reset" value="Reset" /></p>
+    <p><input type="submit" id="create" value="create" /> <input type="reset" value="Reset" /></p>
 </form>
 
 <div>

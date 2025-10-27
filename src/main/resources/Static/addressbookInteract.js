@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#add").on("click", function() {
+    $("#create").on("click", function() {
         $.ajax({
             url: "https://personalizedaddressbook-eebqcue0bhayaeft.canadacentral-01.azurewebsites.net/addressBook",
             type: 'POST',
