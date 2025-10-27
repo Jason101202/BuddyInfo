@@ -25,6 +25,13 @@ public class AddressBook {
     public AddressBook(String name) {this.name = name;}
 
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return this.id;
