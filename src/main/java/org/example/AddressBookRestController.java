@@ -17,7 +17,7 @@ public class AddressBookRestController {
         if (repo.count() == 0) {
             return null; // No address book yet
         }
-        return repo.findById(1); // Return the only one
+        return repo.findById(1L); // Return the only one
     }
 
     @PostMapping
@@ -26,7 +26,7 @@ public class AddressBookRestController {
             return repo.save(book);
         }
         // Only one address book allowed — return existing
-        return repo.findById(1);
+        return repo.findById(1L);
     }
 }
 
