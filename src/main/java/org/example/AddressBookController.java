@@ -34,6 +34,18 @@ public class AddressBookController {
         return "addressbookInteract";
     }
 
+    @PostMapping("/addressBook")
+    public String addAddressBook(@ModelAttribute AddressBook addressBook, Model model) {
+        if (repo.count() > 0) {
+            repo.deleteAll();
+            model.addAttribute("addressbook", addressBook);
+            repo.save(addressBook);
+        } else {
+            model.addAttribute("addressbook", addressBook);
+            repo.save(addressBook);
+        }
+        return "addressbookInteract";
+    }
 
 
     /*
