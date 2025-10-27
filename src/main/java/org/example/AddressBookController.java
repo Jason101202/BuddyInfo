@@ -28,20 +28,15 @@ public class AddressBookController {
 
     }
 
-
-
-
     @GetMapping("/addressBook")
     public String formAddressBook(Model model){
-        if (repo.count() > 0) {
-            model.addAttribute("addressbook", repo.findById(1));
-        } else {
-            model.addAttribute("addressbook", new AddressBook());
-        }
-
+        model.addAttribute("addressbook", new AddressBook());
         return "addressbookInteract";
     }
 
+
+
+    /*
     @PostMapping("/addressBook")
     public String addAddressBook(@ModelAttribute AddressBook addressBook, Model model) {
         if (repo.count() > 0) {
@@ -53,15 +48,6 @@ public class AddressBookController {
             repo.save(addressBook);
         }
         return "addressbookInteract";
-    }
-    /*
-    @GetMapping("/display")
-    public AddressBook addressBook(@RequestParam(defaultValue = "addressbook") String name, AddressBookRepo repo) {
-        AddressBook a = new AddressBook();
-        repo.save(a);
-        return a;
-    }
-
     @GetMapping("/addBuddy")
     public AddressBook addBud(@RequestParam(defaultValue = "addressbook") String name) {
 
