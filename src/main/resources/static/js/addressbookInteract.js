@@ -7,6 +7,7 @@ $(document).ready(function() {
         type: 'GET',
         success: function(data) {
             if (data && data.name) {
+                console.log("Fetched data:", data);
                 $('.addressbook-name').text("Your address book: " + data.name);
             } else {
                 $('.addressbook-name').text("No address book exists yet. Create one below!");
