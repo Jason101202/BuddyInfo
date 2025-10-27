@@ -1,33 +1,38 @@
 $(document).ready(function() {
-    const apiUrl = "https://personalizedaddressbook-eebqcue0bhayaeft.canadacentral-01.azurewebsites.net/addressBook";
+    const apiUrl = "https://personalizedaddressbook-eebqcue0bhayaeft.canadacentral-01.azurewebsites.net/api/addressBook";
 
-    function loadAddressBooks() {
-            $.ajax({
-                url: apiUrl,
-                type: "GET",
-                success: function(data) {
-                    if (data && data.name) {
-                        $('.addressbook-name').text("Your address book: " + data.name);
-                    } else {
-                        $('.addressbook-name').text("No address book exists yet. Create one below!");
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error("Error fetching address books:", error);
-                }
-            });
+    // 🔹 Load the existing address book when the page loads
+    $.ajax({
+        url: apiUrl,
+        type: 'GET',
+        success: function(data) {
+            if (data && data.name) {
+                $('.addressbook-name').text("Your address book: " + data.name);
+            } else {
+                $('.addressbook-name').text("No address book exists yet. Create one below!");
+            }
+        },
+        error: function(xhr) {
+            console.error("Error fetching Address Book:", xhr.status, xhr.statusText);
         }
+    });
 
-        loadAddressBooks();
+    // 🔹 Create a new address book when the button is pressed
+    $("#create").on("click", function(event) {
+        event.preventDefault(); // prevent form reload
 
-    $("#create").on("click", function() {
+        const name = $("input[name='name']").val();
+
         $.ajax({
             url: apiUrl,
             type: 'POST',
             contentType: 'application/json',
-            data: { name: $("#name").val()},
-            success: function(response) {
-                $('.addressbook-name').append($("#name").val());
+            data: JSON.stringify({ name: name }),
+            success: function(data) {
+                $('.addressbook-name').text("Your address book: " + data.name);
+            },
+            error: function(xhr) {
+                console.error("Error creating Address Book:", xhr.status, xhr.statusText);
             }
         });
     });
