@@ -23,7 +23,7 @@ $(document).ready(function() {
         event.preventDefault();
 
 
-        const name = $("input[name='name']").val();
+        const name = $("#addressbook-name").val();
 
         $.ajax({
             url: apiUrl,
