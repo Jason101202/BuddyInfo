@@ -5,10 +5,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Form</h1>
+<h1>Create a AddressBook!</h1>
 <form action="#" th:action="@{/addressBook}" th:object="${addressbook}" method="post">
     <p>Name: <input type="text" th:field="*{name}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
+
+<div>
+    <p class ="addressbook-name">Your addressbook </p>
+    <p class ="addressbook-content">Here are your buddy infos</p>
+</div>
 </body>
 </html>
