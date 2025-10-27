@@ -1,5 +1,6 @@
 package org.example;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class AddressBook {
     private String name;
 
     @OneToMany(mappedBy = "addressBook", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<BuddyInfo> buddies;
 
     public AddressBook() {

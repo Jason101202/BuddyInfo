@@ -1,5 +1,6 @@
 package org.example;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Query;
 
@@ -17,6 +18,7 @@ public class BuddyInfo {
     private String phoneNumber;
     private String email;
     @ManyToOne
+    @JsonManagedReference
     private AddressBook addressBook;
 
     public BuddyInfo(String name, String address, String phoneNumber, String email) {
